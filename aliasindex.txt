@@ -12,3 +12,16 @@ POST /_aliases
 
 
 GET /intel_products/_doc/1
+
+POST /_aliases
+{
+  "actions": [
+    {
+      "remove": {
+        "index": "orders",
+        "alias": "intel_products"
+      }
+    }
+  ]
+}
+
