@@ -1,0 +1,27 @@
+PUT /account
+{
+  
+  "mappings": {
+    
+     "dynamic": "strict",
+     "properties": {
+       "runningTotal":{"type":"long"}
+     }
+    }
+  
+}
+
+POST /account/_doc/3
+{
+  "runningTotal":7700
+}
+
+
+POST /account/_doc/21
+{
+  "runningTotal":6700,
+  "timeStamp":"2023-08-08"
+}
+
+
+GET /account/_doc/2
