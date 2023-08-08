@@ -34,6 +34,13 @@ POST /_aliases
 GET /alias1/_search
 {
 "query": {
+  "match_all": {}
+}
+}
+
+GET /alias1/_search
+{
+"query": {
   "match": {
     "price": "128"
   }
