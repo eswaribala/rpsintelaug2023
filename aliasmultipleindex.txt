@@ -1,0 +1,58 @@
+PUT /catalog
+{
+  "mappings": {
+    "properties": {
+      "catalogId":{"type":"integer"},
+      "catalogName":{"type": "text"}
+      
+    }
+  }
+}
+
+
+
+
+POST /_aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "catalog",
+        "alias": "alias1",
+        "is_write_index": true
+      }
+    },
+    {
+      "add": {
+        "index": "products",
+        "alias": "alias1"
+      }
+    }
+  ]
+}
+
+GET /alias1/_search
+{
+"query": {
+  "match": {
+    "price": "128"
+  }
+}
+}
+
+POST /alias1/_doc/11000
+{
+  "catalogId":6789,
+  "catalogName":"electronics"
+  
+}
+
+
+GET /alias1/_search
+{
+"query": {
+  "match": {
+    "catalogId": "6789"
+  }
+}
+}
