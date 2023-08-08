@@ -1,0 +1,34 @@
+GET /products/_search
+
+
+
+GET /products/_search
+{
+"query": {
+"fuzzy": {
+  "name.keyword": {
+    "value":   "Trta Shells - Savory"
+   , "fuzziness": 2
+  }
+  
+}
+
+
+}
+}
+
+
+GET /products/_search
+{
+
+  "query": {
+    "match": {
+      "name": {
+        "query": "TrtS ahells - Savory",
+        "fuzziness": "AUTO"
+        
+      }
+    }
+  }
+
+}
