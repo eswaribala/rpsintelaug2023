@@ -19,3 +19,37 @@ GET /_index_template/rps_template
 
 PUT /rps_products
 GET /rps_products
+
+==================================
+PUT /_index_template/intel_template
+{
+  "index_patterns": ["intel*","rps*"],
+  "priority":100,
+  "template":{
+    "settings":{
+        "number_of_shards" : 2,
+        "number_of_replicas": 0
+    }
+  },
+  
+ "version": 1.0
+ 
+}
+
+GET /_index_template/intel_template
+
+
+PUT /intel-products
+
+GET /intel-products
+
+
+POST /intel-products/_doc/1
+{
+  "productId":439569,
+  "name":"Laptop",
+  "cost":75000
+}
+
+GET /intel-products/_search
+
