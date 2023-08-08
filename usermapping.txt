@@ -1,0 +1,39 @@
+PUT /user_index_v1/
+{
+  "mappings":{
+    "properties":
+    {
+      "id":{"type":"integer"},
+      "name":{"type":"text"} 
+      "userName":{"type":"text"},
+      "email":{"type":"text"},
+      "address":{
+        "properties":
+        {
+          "street":{"type":"text"},
+          "suite":{"type":"text"},
+          "city":{"type":"text"},
+          "zipcode":{"type":"text"},
+           "geo":{"type":"geo_point"}
+          
+        }
+        
+      },
+      "phone":{"type":"text"},
+      "website": {"type":"text"},
+      "company":{
+        "properties":
+        {
+          "name": {"type":"text"},
+          "catchPhrase": {"type":"text"},
+           "bs": {"type":"text"}
+          
+        }
+      }
+    }
+    
+  }
+  
+  
+  
+}
