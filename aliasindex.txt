@@ -1,0 +1,14 @@
+POST /_aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "products",
+        "alias": "intel_products"
+      }
+    }
+  ]
+}
+
+
+GET /intel_products/_doc/1
