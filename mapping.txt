@@ -1,0 +1,39 @@
+PUT /transaction
+{
+  "settings": {
+    "number_of_shards": 1,
+"number_of_replicas": 1
+  },
+  "mappings": {
+    "properties": {
+      "amount":{"type": "long" },
+      "timeStamp":{"type": "date"},
+      "receiver":{"type":"text"},
+      "sender":{"type":"text"}
+      
+    }
+  }
+}
+
+GET /transaction/_mapping
+
+
+POST /transaction/_doc/1
+{
+  "amount":4500,
+  "receiver":"Parameswari",
+  "sender":"Bala",
+  "timeStamp":"2023-08-08"
+}
+
+GET /transaction/_doc/1
+
+
+GET /transaction/_search
+{
+"query": {
+  "match": {
+    "sender": "Bala"
+  }
+}
+}
