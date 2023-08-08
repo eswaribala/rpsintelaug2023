@@ -1,0 +1,20 @@
+PUT /deliveryv1
+{
+  "mappings": {
+"properties": {
+  "deliveredDate":{
+    "type": "date",
+"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||dd-MM-yyyy"
+  }
+}
+
+  }
+}
+
+
+POST /deliveryv1/_doc/3
+{
+  "deliveredDate":"2023-11-11"
+}
+
+GET /deliveryv1/_search
