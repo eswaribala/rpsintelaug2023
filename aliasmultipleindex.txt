@@ -30,7 +30,7 @@ POST /_aliases
     }
   ]
 }
-
+#fetch data from multiple indices
 GET /alias1/_search
 {
 "query": {
