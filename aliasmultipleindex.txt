@@ -63,3 +63,29 @@ GET /alias1/_search
   }
 }
 }
+
+POST /_aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "products",
+        "alias": "alias2"
+      }
+    },
+    {
+      "add": {
+        "index": "orders", 
+        "alias": "alias2"
+      }
+    }
+  ]
+}
+
+GET /alias2/_search
+{
+"query": {
+"match_all": {}
+
+}
+}
