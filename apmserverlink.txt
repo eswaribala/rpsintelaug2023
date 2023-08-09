@@ -1,1 +1,8 @@
 https://www.elastic.co/downloads/past-releases/apm-server-7-15-0
+
+
+To run APM Server
+
+go to powershell with admin privileges
+cd  apm-server-7.15.0-windows-x86_64\apm-server-7.15.0-windows-x86_64
+./apm-server -e -E output.elasticsearch.hosts=localhost:9200 -E apm-server.host=localhost:8200 
