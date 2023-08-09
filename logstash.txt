@@ -1,4 +1,19 @@
+Step 1
+Download logstash
 https://www.elastic.co/downloads/past-releases/logstash-7-15-0
+
+Step2
+unzip logstash folder
+
+Step3
+
+Go to bin folder
+
+
+Step4
+open cli
+
+Step5
 
 #test logstash
 logstash -e  "input { stdin { } } output { stdout {} }"
