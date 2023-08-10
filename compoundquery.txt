@@ -1,0 +1,26 @@
+GET /recipes/_search
+{
+"query": {
+  "bool": {
+    "should": [
+      {
+"match": {
+          "title": "Fast"
+        }
+      },
+      {
+"match": {
+          "title": "Pasta"
+        }
+      }
+    ],
+    "must": [
+      {
+        "match": {
+          "preparation_time_minutes": 30
+        }
+      }
+    ]
+  }
+}
+}
