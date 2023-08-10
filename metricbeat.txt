@@ -1,1 +1,1 @@
-metricbeat.exe -c filebeat.yml -e -d "publish"
+metricbeat.exe -c metricbeat.yml -e -d "publish"
