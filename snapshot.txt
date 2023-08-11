@@ -6,3 +6,15 @@ PUT /_snapshot/backup_repo
     "compress": true
   }
 }
+
+
+To restore the whole snapshot:
+
+POST /_snapshot/my_backup/snapshot-01-11-2019/_restore
+
+To restore an individual index:
+
+POST /_snapshot/my_backup/snapshot-01-11-2019/_restore
+{
+  "indices": "my_index"
+}
