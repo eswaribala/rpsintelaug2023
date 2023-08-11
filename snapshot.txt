@@ -1,0 +1,8 @@
+PUT /_snapshot/backup_repo
+{
+  "type": "fs",
+  "settings": {
+    "location": "/home/root/backups",
+    "compress": true
+  }
+}
