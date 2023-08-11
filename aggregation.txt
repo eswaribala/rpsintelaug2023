@@ -320,6 +320,45 @@ GET /order/_search
 }
 }
 
+#count based on sales channel
+GET /order/_search
+{
+  "size": 0, 
+  "aggregations": { 
+  "responses.counts": { 
+    "scripted_metric": { 
+      "init_script": "state.result = ['store':0L,'web':0L,'phone':0L,'other':0L]", 
+      "map_script": """ 
+        def code = doc['sales_channel'].value;
+        if (code == 'web') {
+          state.result.web += 1 ;
+        } else if(code == 'store') {
+          state.result.store += 1;
+        }else if(code == 'phone') {
+          state.result.phone += 1;
+        }else {
+          state.result.other += 1;
+        }
+        """,
+      "combine_script": "state.result", 
+      "reduce_script": """ 
+        def counts = ['store':0L,'web':0L,'phone':0L,'other':0L];
+        for (responses in states) {
+          counts.store += responses['store'];
+          counts.web += responses['web'];
+          counts.phone += responses['phone'];
+           counts.other += responses['other'];
+        }
+        return counts;
+        """
+      }
+    }
+  
+}
+
+
+}
+
 GET /orders/_search
 {
   "size": 0,
