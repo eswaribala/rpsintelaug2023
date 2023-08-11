@@ -226,7 +226,26 @@ GET /order/_search
   }
 }
 
-
+//monthly bucket
+GET /orders/_search
+{
+  "size": 0,
+  "aggs": {
+    "orders_over_time": {
+      "date_histogram": {
+        "field": "purchased_at",
+        "interval": "month"
+      },
+      "aggs": {
+        "total_sales": {
+          "sum": {
+            "field": "total_amount"
+          }
+        }
+      }
+    }
+  }
+}
 
 //bucket query
 
