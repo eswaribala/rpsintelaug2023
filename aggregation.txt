@@ -186,6 +186,48 @@ GET /orders/_search
     }
   }
 }
+//quarterly sales
+GET /order/_search
+{
+  "size": 0,
+  "aggs": {
+    
+    "purchased_ranges": {
+
+      "date_range": {
+        "field": "purchased_at",
+        "ranges": [
+          {
+            "from": "2016-01-01",
+            "to": "2016-01-01||+3M"
+          },
+          {
+            "from": "2016-01-01||+3M",
+            "to": "2016-01-01||+6M"
+          },
+           {
+            "from": "2016-01-01||+6M",
+            "to": "2016-01-01||+9M"
+          },
+          {
+            "from": "2016-01-01||+9M",
+            "to": "2016-01-01||+12M"
+          }
+        ]
+      },
+      "aggs": {
+        "bucket_stats": {
+          "stats": {
+            "field": "total_amount"
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
 //bucket query
 
 GET /order/_search
