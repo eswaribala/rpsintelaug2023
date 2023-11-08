@@ -51,6 +51,10 @@ POST /bookdb_index/book/_search
     "_source": ["title", "summary", "publish_date"]
 }
 --------------------------------------------------------------
+# must means: The clause (query) must appear in matching documents. These clauses must match, like logical AND.
+
+should means: At least one of these clauses must match, like logical OR.
+
 POST /books/_search
 {
   "query": {
