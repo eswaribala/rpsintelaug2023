@@ -71,6 +71,8 @@ POST /books/_search
 }
 
 =====================================================
+#I want to search for a book with the word “Elasticsearch” OR “Solr” in the title, AND is authored by “clinton gormley”
+
 POST /books/_search
 {
   "query": {
@@ -87,6 +89,8 @@ POST /books/_search
   }
 }
 ======================================================
+#I want to search for a book with the word “Elasticsearch” OR “Solr” in the title, AND is authored by “clinton gormley” but NOT authored by “radu gheorge”:
+
 POST /bookdb_index/book/_search
 {
   "query": {
